@@ -1,29 +1,20 @@
-import React from 'react';
-import {
-  Breadcrumb,
-  Layout,
-  Menu,
-  Col,
-  Row,
-  Divider,
-  Image,
-  Space,
-} from 'antd';
-import { useRouter } from 'next/router';
+import React from "react"
+import { Breadcrumb, Layout, Menu, Col, Row, Divider, Image, Space } from "antd"
+import { useRouter } from "next/router"
 import {
   InfoCircleOutlined,
   MailOutlined,
   SlackOutlined,
   SwapOutlined,
-} from '@ant-design/icons';
+} from "@ant-design/icons"
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content, Footer } = Layout
 
 const menuItem = [
   {
-    id: '0',
-    name: '로그인',
-    path: '/copyrights',
+    id: "0",
+    name: "로그인",
+    path: "/copyrights",
   },
   // {
   //   id: '1',
@@ -31,39 +22,39 @@ const menuItem = [
   //   path: '/mypage',
   // },
   {
-    id: '2',
-    name: '마이페이지',
-    path: '/mypage',
+    id: "2",
+    name: "마이페이지",
+    path: "/mypage",
   },
   {
-    id: '3',
-    name: '서비스 소개',
-    path: '/',
+    id: "3",
+    name: "서비스 소개",
+    path: "/",
   },
   {
-    id: '4',
-    name: 'Binance',
-    path: '/Binance',
+    id: "4",
+    name: "Binance",
+    path: "/Binance",
   },
-];
+]
 
 const DefaultLayout = ({ children }: any) => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <Row justify="center">
-      <Col style={{ width: '1200px' }}>
+      <Col style={{ width: "1200px" }}>
         <Layout
           className="layout"
-          style={{ minHeight: '100vh', background: '#fff' }}
+          style={{ minHeight: "100vh", background: "#fff" }}
         >
-          {router.pathname === '/' || router.pathname === '' ? (
+          {router.pathname === "/" || router.pathname === "" ? (
             <div
               style={{
-                height: '200px',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
+                height: "200px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
               <Image src="/topLogo.png" alt="toplogo" preview={false}></Image>
@@ -71,12 +62,12 @@ const DefaultLayout = ({ children }: any) => {
           ) : (
             <div />
           )}
-          <Header style={{ background: '#fff' }}>
+          <Header style={{ background: "#fff" }}>
             <Menu
               theme="light"
               mode="horizontal"
-              style={{ justifyContent: 'center' }}
-              defaultSelectedKeys={['2']}
+              style={{ justifyContent: "center" }}
+              defaultSelectedKeys={["2"]}
               items={menuItem.map((item) => ({
                 key: item.id,
                 label: item.name,
@@ -85,16 +76,16 @@ const DefaultLayout = ({ children }: any) => {
             />
           </Header>
           <Content>
-            <div className="site-layout-content" style={{ background: '#fff' }}>
+            <div className="site-layout-content" style={{ background: "#fff" }}>
               {children}
             </div>
           </Content>
           <Footer
             style={{
-              textAlign: 'center',
-              width: '100%',
-              background: '#fff',
-              borderTop: '1px solid #CCCCCC',
+              textAlign: "center",
+              width: "100%",
+              background: "#fff",
+              borderTop: "1px solid #CCCCCC",
             }}
           >
             <Row justify="center" gutter={[16, 32]}>
@@ -130,7 +121,7 @@ const DefaultLayout = ({ children }: any) => {
         </Layout>
       </Col>
     </Row>
-  );
-};
+  )
+}
 
-export default DefaultLayout;
+export default DefaultLayout
